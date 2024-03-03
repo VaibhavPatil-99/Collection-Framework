@@ -1,0 +1,49 @@
+package collectionPractice;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Arraylist {
+
+	public static void main(String[] args) {
+		
+		ArrayList<String> list = new ArrayList<String>();
+		
+		list.add("raju");
+		list.add("prathu");
+		list.add("shubh");
+		list.add("vp");
+		
+		
+		System.out.println(list);
+		
+//		Iterator itr = list.iterator();
+//		while(itr.hasNext()) {					// Iterator is used to iterate the list.
+//		System.out.print(itr.next() + " ");	
+//		}
+
+		//list.add(3, "tush");					// 0.add(index,"") method is used to add the element at specific position.
+		
+		//list.remove(3);						// 1.Remove() method is used to remove the element from the list.
+		
+		//list.set(3, "vaibhav");				// 2.Set(index,"") method is used to replace the element.
+		
+		//System.out.println(list.get(2));		// 3.get method is used to print the specific element.
+		
+		//list.clear();							// 4.clear method is used to delete the all elements from the list.
+		
+		
+		System.out.println(list.contains("vp"));
+		
+		ArrayList<String> list2 = new ArrayList<String>();
+		list2.add("abc");
+		list2.add("xyz");
+		System.out.println(list2);
+		
+		System.out.println(list.equals(list2));
+		
+	
+		
+	}
+
+}
