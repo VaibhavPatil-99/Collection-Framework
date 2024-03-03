@@ -1,0 +1,34 @@
+package collectionPractice;
+
+import java.util.LinkedList;
+
+public class Linkedlist {
+
+	public static void main(String[] args) {
+		
+		LinkedList<String> list = new LinkedList<String>();
+		
+		list.add("shubh");
+		list.add("prathu");
+		list.add("raju");
+		list.add("vp");
+		System.out.println(list);
+		
+		// list.addFirst("kalu");		// 1.addFirst() method is used to add the element at first position.
+		
+		//list.addLast("gorilla");		// 2.addLast() method is used to add the element at the last position.
+		
+		//list.removeFirst();			// 3. removeLast() method is used to remove the first element.
+		
+		//list.removeLast();				// 4.removeLast() method is used to remove the last element.
+		 
+		//System.out.println(list);
+
+		for(String str:list)
+		{
+			System.out.println(str);
+		}
+		
+	}
+
+}
