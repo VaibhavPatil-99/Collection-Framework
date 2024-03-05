@@ -1,0 +1,29 @@
+package mapInterface;
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Map map = new HashMap();
+		
+		map.put(101, "vp");
+		map.put(102, "shubh");
+		map.put(103, "rushi");
+		map.put(104, "raj");
+		
+		// map.clear();
+	  // System.out.println(map.containsKey(105));
+		// System.out.println(map.containsValue("vp"));
+		// System.out.println(map.get(102));
+		// System.out.println(map.isEmpty());
+		// System.out.println(map.size());
+		// map.remove(101);
+		// map.replace(101, "shiv");
+		
+		System.out.println(map);
+	}
+
+}
