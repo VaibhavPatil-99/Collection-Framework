@@ -1,0 +1,26 @@
+package mcqTestProject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class User {
+    private String name;
+    private Map<Question, String> answers;
+
+    public User(String name) {
+        this.name = name;
+        this.answers = new HashMap<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addAnswer(Question question, String answer) {
+        answers.put(question, answer);
+    }
+
+    public Map<Question, String> getAnswers() {
+        return answers;
+    }
+}
