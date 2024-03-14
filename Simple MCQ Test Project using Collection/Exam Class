@@ -1,0 +1,103 @@
+package mcqTestProject;
+
+import java.util.*;
+public class Exam 
+{
+     List<Question> questionBank;
+     List<User> users;
+     Scanner scanner;
+
+    public Exam() {
+        this.questionBank = new ArrayList<>();
+        this.users = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void addQuestion(String question, List<String> options, String correctAnswer) {
+        questionBank.add(new Question(question, options, correctAnswer));
+    }
+
+    public void addUser(String name) {
+        users.add(new User(name));
+    }
+
+    public void conductTest(User user) {
+    	Collections.shuffle(questionBank);
+        for (Question question : questionBank.subList(0, 5)) {
+        	
+            System.out.println(question.getQuestion());
+            List<String> options = question.getOptions();
+            for (int i = 0; i < options.size(); i++) {
+                System.out.println((i + 1) + ". " + options.get(i));
+            }
+            int choice = scanner.nextInt();
+            scanner.nextLine(); 
+            user.addAnswer(question, options.get(choice - 1));
+        }
+    }
+    int count=0;
+    double percentage;
+    public void showResult(User user) {
+        System.out.println("Result for user: " + user.getName());
+        int score = 0;
+        Map<Question, String> answers = user.getAnswers();
+        for (Question question : answers.keySet()) {
+            String userAnswer = answers.get(question);
+            if (userAnswer.equalsIgnoreCase(question.getCorrectAnswer())) {
+                score++;
+               
+            }
+        }
+        
+        int totalQuestions = 5;
+         percentage = ((double) score / totalQuestions) * 100;
+       
+        System.out.println("Score: " + score + "/" + totalQuestions);
+        if (percentage >= 60)
+        {
+        	
+            System.out.println("Pass! Congratulations, " + user.getName() + "!");
+            
+        }
+        else
+        {
+            System.out.println("Fail! Better luck next time, " + user.getName() + ".");
+        }
+        System.out.println();
+    }
+
+    public void showResultsForAllStudents() {
+        for (User user : users) {
+            showResult(user);
+            if(percentage>=60)
+            {
+            	count++;
+            }
+            
+        } 
+        System.out.println("Total Users : "+users.size());
+		System.out.println("Pass Students : "+ count);
+		System.out.println("Passed Student % : "+count*100/users.size());
+    }
+
+    public void addQuestionFromUser() {
+        System.out.println("Enter the question:");
+        String question = scanner.nextLine();
+        List<String> options = new ArrayList<>();
+        System.out.println("Enter the options (enter 'done' when finished):");
+        String option;
+        while (true) 
+        {
+            option = scanner.nextLine();
+            if (option.equalsIgnoreCase("done"))
+            {
+                break;
+            }
+            options.add(option);
+        }
+        System.out.println("Enter the correct answer:");
+        String correctAnswer = scanner.nextLine();
+        addQuestion(question, options, correctAnswer);
+        System.out.println("Question added successfully!");
+    }   
+}
