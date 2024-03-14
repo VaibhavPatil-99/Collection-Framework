@@ -1,0 +1,51 @@
+package mcqTestProject;
+
+import java.util.Scanner;
+import java.util.*;
+
+public class MyTestClass {
+    public static void main(String[] args) {
+        Exam testSystem = new Exam();
+        Scanner scanner = new Scanner(System.in);
+
+        testSystem.addQuestion(" Which component is used to compile, debug and execute the java programs?", Arrays.asList("JIT", "JRE", "JVM", "JDK"), "JDK");
+        testSystem.addQuestion("When is the object created with new keyword?", Arrays.asList("At run time", "At compile time", "Depends on the code", "none"), "At run time");
+        testSystem.addQuestion("What is the extension of java code files?", Arrays.asList(".js", ".txt", ".class", ".java"), ".java");
+        testSystem.addQuestion("Who invented Java Programming?", Arrays.asList("Guido van Rossum", "James Gosling", "Dennis Ritchie", "Bjarne Stroustrup"), "James Gosling");
+        testSystem.addQuestion("Which one of the following is not a Java feature?", Arrays.asList("Object-oriented", "Use of pointers", "Portable", "Dynamic and Extensible"), "Use of pointers");
+        testSystem.addQuestion("Number of primitive data types in Java are?", Arrays.asList("2", "8", "10", "12"), "8");
+        
+
+        while (true) {
+            System.out.println("1. Add new questions");
+            System.out.println("2. Add user and take test");
+            System.out.println("3. Print result of all");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); 
+            switch (choice) {
+                case 1:
+                    testSystem.addQuestionFromUser();
+                    break;
+                case 2:
+                    System.out.print("Enter your name: ");
+                    String userName = scanner.nextLine();
+                    testSystem.addUser(userName);
+                    User user = testSystem.users.get(testSystem.users.size() - 1);
+                    testSystem.conductTest(user);
+                    testSystem.showResult(user);
+                    break;
+                case 3:
+                    testSystem.showResultsForAllStudents();
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
