@@ -1,0 +1,17 @@
+package collection.Arraylist;
+
+public class MyArray {
+
+	public static void main(String[] args) {
+		
+		MyArrayList ml = new MyArrayList();
+		ml.add("10");
+		ml.add("Pranita");
+		ml.add("C");
+		ml.add("40");
+
+		ml.add(null );
+		ml.print();
+	}
+
+}
