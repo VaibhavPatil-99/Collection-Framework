@@ -1,0 +1,8 @@
+package collection.Linkedlist;
+
+public class Node {
+	
+	Node next;
+	public int num;
+
+}
