@@ -1,0 +1,43 @@
+package collection.Linkedlist;
+
+public class MyLinkedlist {
+
+	Node root;
+	
+	public void add(int num)
+	{
+		Node newNode = new  Node();
+		newNode.num=num;
+		
+		if(root==null)
+		{
+			root=newNode;
+			
+		}
+		else
+		{
+			Node temp=root;
+			
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+					
+			}
+			temp.next=newNode;		
+		}		
+	}
+	public void print()
+	{
+		if(root!=null)
+		{
+			Node temp = root;
+			do
+			{
+				System.out.println(temp.num);
+				temp=temp.next;
+			}
+			while(temp.next!=null);
+		}
+	}
+	
+}
