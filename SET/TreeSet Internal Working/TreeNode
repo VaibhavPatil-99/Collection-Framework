@@ -1,0 +1,8 @@
+package collection.treeset;
+
+public class TreeNode {
+
+	TreeNode  right;
+	TreeNode left;
+	public int num;
+}
