@@ -1,0 +1,56 @@
+// Internal working of Tree set
+
+package collection.treeset;
+
+
+public class MyTree {
+
+	TreeNode root;
+	
+	public void add(int num)
+	{
+		TreeNode obj  = new TreeNode();
+		obj.num=num;
+		
+		if(root==null)
+		{
+			root=obj;	
+		}
+		else
+		{
+			TreeNode temp=root;
+			while(true)
+			{
+				if(num<temp.num && temp.left==null)
+					temp.left=obj;
+				
+				else if(num<temp.num && temp.left!=null)
+					temp=temp.left;
+				else if(num>temp.num && temp.right==null)
+					temp.right=obj;
+				else if(num<temp.num && temp.right!=null)
+					temp=temp.right;
+				else
+					break;
+					
+			}
+		}
+	}
+	
+	public void print()
+	{
+		if(root!=null)
+			printMyTree(root);
+	}
+
+	private void printMyTree(TreeNode node) {
+		
+		if(node.left!=null)
+		printMyTree(node.left);	
+		System.out.println(node.num);
+		if(node.right!=null)
+			printMyTree(node.right);
+	}
+	
+}
+
